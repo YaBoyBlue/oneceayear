@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset"utf-8">
+        <title>Once A Year</title>
+        <style>
+            /* Background Colors */
+
+            .background-off-white
+            {
+                background-color: rgba(240, 240, 240, 255);
+            }
+            .background-white
+            {
+                background-color: rgba(255, 255, 255, 255);
+            }
+
+            /* Elements */
+
+            html, body
+            {
+                margin: 0;
+            }
+
+            section
+            {   
+                width: 100vw;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+            }
+
+            /* Content */
+
+            .margin-0-0-20-20
+            {
+                margin-left: 20%;
+                margin-right: 20%;
+            }
+
+            .content-center-form
+            {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .center
+            {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            /** Text **/
+
+            .text-landing
+            {
+                margin-top: auto;
+                margin-bottom: 0;
+                font-family: 'Cerebri Sans', sans-serif;
+                font-size: 450%;
+                font-weight: bold;
+                text-align: center;
+            }
+
+            .text-header
+            {
+                font-family: 'Times New Roman', Times, serif;
+                font-size: 150%;
+                font-weight: bold;
+                text-align: center;
+            }
+
+            .text-paragraph
+            {
+                font-family: 'Times New Roman', Times, serif;
+                font-size: 125%;
+                text-align: center;
+            }
+
+            /* Buttons */
+
+            .button
+            {
+                margin-top: 5px;
+                margin-bottom: 5px;
+                background-color: rgba(0, 0, 0, 0);
+                border: 2px;
+                border-style: solid;
+                border-radius: 25px;
+                border-color: rgba(0, 0, 0, 1);
+                padding: 15px 15px;
+                text-decoration: none;
+                color: rgba(0, 0, 0, 1);
+                width: fit-content;
+                margin-left: auto;
+                margin-right: auto;
+                font-family: 'Cerebri Sans', sans-serif;
+                font-size: 100%;
+                font-weight: bold;
+            }
+            .button:hover
+            {
+                background-color: rgba(0, 0, 0, 1);
+                border: 2px;
+                border-style: solid;
+                border-radius: 25px;
+                border-color: rgba(255, 255, 255, 1);
+                padding: 15px 15px;
+                text-decoration: none;
+                color: rgba(255, 255, 255, 1);
+                cursor: pointer;
+            }
+
+            input[type="file"]/*, button[type="submit"] */
+            {
+                display: none;
+            }
+
+            /* Images */
+
+            .container-image
+            {
+                width: 300px;
+                height: 300px;
+                overflow: hidden;
+                margin-top: 2%;
+                margin-bottom: 2%;
+                margin-left: 2%;
+                margin-right: 2%;
+                filter: drop-shadow(0 0 0.75rem);
+                transition: 0.5s;
+            }
+            .container-image:hover
+            {
+                filter: drop-shadow(0 0 0.25rem);
+            }
+            .container-image-row
+            {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+            }
+            .image-row
+            {
+                display: flex;
+                flex-direction: row;
+                width: 300px;
+                height: 300px;
+                overflow: hidden;
+                margin-top: 2%;
+                margin-bottom: 2%;
+                margin-left: 2%;
+                margin-right: 2%;
+                filter: drop-shadow(0 0 0.75rem);
+                transition: 0.5s;
+            }
+            .image-row:hover
+            {
+                display: flex;
+                flex-direction: row;
+                width: 300px;
+                height: 300px;
+                overflow: hidden;
+                margin-top: 2%;
+                margin-bottom: 2%;
+                margin-left: 2%;
+                margin-right: 2%;
+                filter: drop-shadow(0 0 0.25rem);
+                transition: 0.5s;
+            }
+            .image
+            {
+                width: inherit;
+                height: inherit;
+                transform: scale(1.25);
+                object-fit: cover;
+                transition: 0.5s;
+            }
+            .image:hover
+            {
+                width: inherit;
+                height: inherit;
+                transform: scale(1);
+                object-fit: cover;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <section id="landing" class="section background-off-white">
+                <div>
+                    <h1 class="center text-landing">Once a Year</h1>
+                    <h2 class="center text-header">One Photo. One Like. One Year.</h2>
+                    <br><br>
+                    <a class="center button" href="#upload" class="button">UPLOAD YOUR PHOTO</a>
+                    <br>
+                    <a class="center button" href="#gallery" class="button">GALLERY</a>
+                </div>
+            </section>
+            <section id="about" class="section background-white">
+                <div class="margin-0-0-20-20">
+                    <h1 class="center text-header">One Photo. One Like. One Year.</h1>
+                    <p class="center text-paragraph">
+                        Once a Year is a website designed around the idea that photography is beautiful when shared. Too often however, we get caught up in the act of sharing things, or involving others within our processes.
+                    </p>
+                    <p class="center text-paragraph">
+                        Our website itself is simple, as the photography should be the focus here. Each user may upload one photo, and like one other photo, as the beauty of photography is not derrived from its abundance.<br>
+                    </p>
+                    <p class="center text-paragraph">
+                        Every year, as we roll into the new year, all uploaded photographs will be removed from our website. This will be accompanied with the preservation of a number of most-liked photographs, which will be maintained on our wall of photography.
+                    </p>
+                </div>
+            </section>
+            <section id="upload" class="section background-off-white">
+                <div class="margin-0-0-20-20">
+                    <h1 class="center text-header">Upload your Photo!</h1>
+                    <p class="center text-paragraph">
+                        {{message}}
+                    </p>
+                </div>
+                {{login/logout}}
+                {{image}}
+                {{upload/delete}}
+            </section>
+            <section id="gallery" class="section">
+                <div class="margin-0-0-20-20">
+                    <h1 class="center text-header">
+                        Gallery
+                    </h1>
+                    <p class="center text-paragraph">
+                        Here you'll find our most recent uploads.
+                    </p>
+                </div>
+                <div>
+                    <div class="container-image-row">
+                        <span class="image-row">
+                            {{gallery_0}}
+                        </span>
+                        <span class="image-row">
+                            {{gallery_1}}
+                        </span>
+                        <span class="image-row">
+                            {{gallery_2}}
+                        </span>
+                    </div>
+                    <div class="container-image-row">
+                        <span class="image-row">
+                            {{gallery_3}}
+                        </span>
+                        <span class="image-row">
+                            {{gallery_4}}
+                        </span>
+                        <span class="image-row">
+                            {{gallery_5}}
+                        </span>
+                    </div>
+                </div>
+            </section>
+            <section id="upcomming" class="section background-off-white">
+                <div class="margin-0-0-20-20">
+                    <h1 class="center text-header">What's Next...</h1>
+                    <p class="center text-paragraph">
+                        After reaching a larger number of uploads, our gallery will be expanded to allow for higher functionalliy browsing, as well as liking, of photographs.
+                    </p>
+                    <p class="center text-paragraph">
+                        Nearing the arrival of the new year, our Wall of Photography will be added in preparation for displaying some of the most liked uploads.
+                    </p>
+                    <p class="center text-paragraph">
+                        Various other additions and changes will be added, while the core ideas of the website are maintained.
+                    </p>
+                </div>
+            </section>
+        </main>
+        {{script}}
+    </body>
+</html>
