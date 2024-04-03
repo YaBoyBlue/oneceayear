@@ -4,32 +4,32 @@ Simple website that allows for users to login via Discord, and upload an image t
 
 ## Programming Languages
 
-- [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
-- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
-- [JS](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-- [SQL](https://www.w3schools.com/sql/)
-- [.env](https://www.dotenv.org/docs/security/env.html)
+- HTML - [Reference](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- CSS - [Reference](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- JS - [Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- SQL - [Reference](https://www.w3schools.com/sql/)
+- .env - [Reference](https://www.dotenv.org/docs/security/env.html)
 
 ## Products and Services
 
-- [Nginx](https://nginx.org/en/)
-- [Node.js](https://nodejs.org/en)
-  - [fs](https://nodejs.org/api/fs.html)
-  - [url](https://nodejs.org/api/url.html)
-  - [http](https://nodejs.org/api/http.html)
-  - [https](https://nodejs.org/api/https.html)
-  - [querystring](https://nodejs.org/api/querystring.html)
-  - [aws-sdk](https://www.npmjs.com/package/aws-sdk)
-  - [cookie-session](https://www.npmjs.com/package/cookie-session)
-  - [dotenv](https://www.npmjs.com/package/dotenv)
-  - [mysql](https://www.npmjs.com/package/mysql)
-  - [pm2](https://www.npmjs.com/package/pm2)
-- [MySQL](https://www.mysql.com/)
-- [Amazon Web Services](https://aws.amazon.com/)
-  - [Virtual Server (EC2)](https://aws.amazon.com/ec2/)
-  - [Bucket (S3)](https://aws.amazon.com/s3/)
-  - [Identity Access and Management (IAM)](https://aws.amazon.com/iam/)
-- [Discord OAuth2](https://discord.com/developers/docs/topics/oauth2)
+- Amazon Web Services - [Reference](https://aws.amazon.com/)
+  - [Virtual Server (EC2)](#setting-up-ec2) - [Reference](https://aws.amazon.com/ec2/)
+  - [Identity Access and Management (IAM)]() - [Reference](https://aws.amazon.com/iam/)
+  - [Bucket (S3)]() - [Reference](https://aws.amazon.com/s3/)
+- [Nginx]() - [Reference](https://nginx.org/en/)
+- [Node.js]() - [Reference](https://nodejs.org/en)
+  - [fs]() - [Reference](https://nodejs.org/api/fs.html)
+  - [url]() - [Reference](https://nodejs.org/api/url.html)
+  - [http]() - [Reference](https://nodejs.org/api/http.html)
+  - [https]() - [Reference](https://nodejs.org/api/https.html)
+  - [querystring]() - [Reference](https://nodejs.org/api/querystring.html)
+  - [aws-sdk]() - [Reference](https://www.npmjs.com/package/aws-sdk)
+  - [cookie-session]() - [Reference](https://www.npmjs.com/package/cookie-session)
+  - [dotenv]() - [Reference](https://www.npmjs.com/package/dotenv)
+  - [mysql]() - [Reference](https://www.npmjs.com/package/mysql)
+  - [pm2]() - [Reference](https://www.npmjs.com/package/pm2)
+- [MySQL]() - [Reference](https://www.mysql.com/)
+- [Discord OAuth2](#discord-oauth2) - [Reference](https://discord.com/developers/docs/topics/oauth2)
 
 ## Installation of Products and Services
 
@@ -519,5 +519,124 @@ async function deleteFileFromS3(fileName)
     }
 }
 ````
+
+</details>
+
+### Discord OAuth2
+
+<details open>
+
+Discord's OAuth2 authenticaion API components will be helpful in authenticating users.
+
+#### Fetching Authorization Code
+
+```JavaScript
+function fetchCode(serverResponse)
+{
+  serverResponse.statusCode = 302;
+  serverResponse.setHeader('Location', process.env.D_CODE_URL);
+  serverResponse.end();
+}
+```
+
+#### Fetching User Access Token
+
+```JavaScript
+function fetchToken(code)
+{
+  return new Promise((resolve, reject) =>
+  {
+    const tokenRequestData = querystring.stringify({
+      grant_type: 'authorization_code',
+      code: code,
+      redirect_uri: process.env.SERVER_CALLBACK,
+      client_id: process.env.D_CLIENT_ID,
+      client_secret: process.env.D_CLIENT_SECRET
+    });
+  
+    const tokenRequestOptions = {
+      hostname: 'discord.com',
+      path: '/api/oauth2/token',
+      method: 'POST',
+      headers:
+      {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Length': tokenRequestData.length
+      }
+    };
+  
+    const tokenRequest = https.request(tokenRequestOptions, (tokenResponse) =>
+    {
+      let tokenData = '';
+  
+      tokenResponse.on('data', (tokenChunk) =>
+      {
+        tokenData += tokenChunk;
+      });
+  
+      tokenResponse.on('end', () =>
+      {
+        const tokenDataJSON = JSON.parse(tokenData);
+  
+        resolve(tokenDataJSON);
+      });
+    });
+  
+    tokenRequest.on('error', (tokenError) =>
+    {
+      reject(tokenError);
+    });
+  
+    tokenRequest.write(tokenRequestData);
+    tokenRequest.end();
+    
+  });
+}
+```
+
+#### Fetching Client Credentials
+
+```JavaScript
+function fetchClient(access_token)
+{
+  return new Promise((resolve, reject) =>
+  {
+    const userRequestOptions =
+    {
+      hostname: 'discord.com',
+      path: '/api/users/@me',
+      method: 'GET',
+      headers:
+      {
+        'Authorization': `Bearer ${access_token}`
+      }
+    };
+
+    const userRequest = https.request(userRequestOptions, (userResponse) =>
+    {
+      let userData = '';
+
+      userResponse.on('data', (userChunk) =>
+      {
+        userData += userChunk;
+      });
+
+      userResponse.on('end', async () =>
+      {
+        const userDataJSON = JSON.parse(userData);
+
+        resolve(userDataJSON);
+      });
+    });
+
+    userRequest.on('error', (userError) =>
+    {
+      reject(userError);
+    });
+
+    userRequest.end();
+  });
+}
+```
 
 </details>
