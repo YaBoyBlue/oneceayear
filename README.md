@@ -1,6 +1,6 @@
 # Once a Year
 
-Simple website that allows for users to login via Discord, and upload an image that is stored within an S3 Bucket.
+Node.js website that allows for users to login via Discord OAuth2 API, and upload an image that is subsequently stored within an S3 Bucket.
 
 ## Programming Languages
 
