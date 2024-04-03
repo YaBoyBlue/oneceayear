@@ -14,21 +14,21 @@ Simple website that allows for users to login via Discord, and upload an image t
 
 - Amazon Web Services - [Reference](https://aws.amazon.com/)
   - [Virtual Server (EC2)](#setting-up-ec2) - [Reference](https://aws.amazon.com/ec2/)
-  - [Identity Access and Management (IAM)]() - [Reference](https://aws.amazon.com/iam/)
-  - [Bucket (S3)]() - [Reference](https://aws.amazon.com/s3/)
-- [Nginx]() - [Reference](https://nginx.org/en/)
-- [Node.js]() - [Reference](https://nodejs.org/en)
-  - [fs]() - [Reference](https://nodejs.org/api/fs.html)
-  - [url]() - [Reference](https://nodejs.org/api/url.html)
-  - [http]() - [Reference](https://nodejs.org/api/http.html)
-  - [https]() - [Reference](https://nodejs.org/api/https.html)
-  - [querystring]() - [Reference](https://nodejs.org/api/querystring.html)
-  - [aws-sdk]() - [Reference](https://www.npmjs.com/package/aws-sdk)
-  - [cookie-session]() - [Reference](https://www.npmjs.com/package/cookie-session)
-  - [dotenv]() - [Reference](https://www.npmjs.com/package/dotenv)
-  - [mysql]() - [Reference](https://www.npmjs.com/package/mysql)
-  - [pm2]() - [Reference](https://www.npmjs.com/package/pm2)
-- [MySQL]() - [Reference](https://www.mysql.com/)
+  - [Identity Access and Management (IAM)](#setting-up-iam) - [Reference](https://aws.amazon.com/iam/)
+  - [Bucket (S3)](#setting-up-s3) - [Reference](https://aws.amazon.com/s3/)
+- [Nginx](#setting-up-nginx) - [Reference](https://nginx.org/en/)
+- [Node.js](#setting-up-node) - [Reference](https://nodejs.org/en)
+  - fs - [Reference](https://nodejs.org/api/fs.html)
+  - url - [Reference](https://nodejs.org/api/url.html)
+  - http - [Reference](https://nodejs.org/api/http.html)
+  - https - [Reference](https://nodejs.org/api/https.html)
+  - querystring - [Reference](https://nodejs.org/api/querystring.html)
+  - [dotenv](#dotenv-package) - [Reference](https://www.npmjs.com/package/dotenv)
+  - [cookie-session](#cookie-session-package) - [Reference](https://www.npmjs.com/package/cookie-session)
+  - [mysql](#mysql-package) - [Reference](https://www.npmjs.com/package/mysql)
+  - [aws-sdk](#aws-sdk-package) - [Reference](https://www.npmjs.com/package/aws-sdk)
+  - pm2 - [Reference](https://www.npmjs.com/package/pm2)
+- [MySQL](#setting-up-mysql) - [Reference](https://www.mysql.com/)
 - [Discord OAuth2](#discord-oauth2) - [Reference](https://discord.com/developers/docs/topics/oauth2)
 
 ## Installation of Products and Services
@@ -126,7 +126,7 @@ Simple website that allows for users to login via Discord, and upload an image t
 
 </details>
 
-### Installing and Configuring Nginx
+### Setting Up Nginx
 
 <details open>
 
@@ -168,7 +168,7 @@ An SSL certificate is needed, which can be selfsigned for testing purposes, or o
 
 </details>
 
-### Installing Node.js and Packages
+### Setting Up Node
 
 <details open>
 
@@ -184,7 +184,7 @@ An SSL certificate is needed, which can be selfsigned for testing purposes, or o
 
 </details>
 
-### Installing MySQL
+### Setting Up MySQL
 
 <details open>
 
@@ -251,7 +251,7 @@ More about [Process here](https://nodejs.org/api/process.html).
 
 </details>
 
-### Node.js Web Server
+### Node Web Server
 
 <details open>
 
