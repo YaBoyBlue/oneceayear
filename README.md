@@ -191,7 +191,22 @@ An SSL certificate is needed, which can be selfsigned for testing purposes, or o
 1. Run `sudo apt install mysql-server`.
 2. Check version with `mysql --version`.
 3. Check status with `sudo systemctl status mysql`.
-2. Run `sudo mysql_secure_installation`, to setup mysql.
+4. Run `sudo mysql_secure_installation`, to setup mysql.
+
+To create the tables you need, you can learn about that at websites like [W3Schools](https://www.w3schools.com/sql/).
+
+#### Example Table
+
+```SQL
+CREATE TABLE users (
+    id INT AUTO_INCREMENT,
+    identifier VARCHAR(255) NOT NULL,
+    link VARCHAR(255),
+    uploaded BOOL DEFAULT false,
+    deleted BOOL DEFAULT false,
+    PRIMARY KEY (id)
+);
+```
 
 </details>
 
